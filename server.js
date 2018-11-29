@@ -26,6 +26,7 @@ app.get('/api', (req, res) => {
             {method: "GET", path: "/api/profile", description: "Who I am"},
             {method: "GET", path: "/api/dodgerplayers", description: "Index of all Dodger player roster"},
             {method: "POST", path: "/api/dodgerplayers", description: "Create a new Dodger"},
+            {method: "GET", path: "/api/dodgerplayers/:id", description: "Find a Dodger player"},
             {method: "PUT", path: "/api/dodgerplayers/:id", description: "Edit a previous Dodger"},
             {method: "DELETE", path: "api/dodgerplayers/:id", description: "Deletes a Dodger player"}
         ]
@@ -60,8 +61,53 @@ app.get('/api/dodgerplayers', (req, res) => {
 
 //Create
 app.post('/api/dodgerplayers', (req, res) => {
+    let newDodger = req.body;
 
+    db.Player.create(newDodger, (err, savedDodger) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.json(savedDodger);
+    });
+});
+
+//Find
+app.get('/api/dodgerplayers/:id', (req, res) => {
+    let dodgerId = req.params.id;
+
+    db.Player.findOne({_id: dodgerId}, (err, foundDodger) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.json(foundDodger);
+    });
+});
+
+//Update
+app.put('/api/dodgerplayers/:id', (req, res) => {
+    let dodgerId = req.params.id;
+    let updateDodger = req.body;
+
+    db.Player.findByIdAndUpdate({_id: dodgerId}, updateDodger, (err, updatedDodger) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.json(updatedDodger);
+    });
+});
+
+//Delete
+app.delete('/api/dodgerplayers/:id', (req, res) => {
+    let dodgerId = req.params.id;
+
+    db.Player.deleteOne({_id: dodgerId}, (err, deletedDodger) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.json(deletedDodger);
+    });
 })
+
 
 //Response Enpoints
 app.listen(process.env.PORT || 3000, () => {
