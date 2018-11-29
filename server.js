@@ -24,12 +24,28 @@ app.get('/api', (req, res) => {
         endpoints: [
             {method: "GET", path: "/api", description: "Describes all available enpoints"},
             {method: "GET", path: "/api/profile", description: "Who I am"},
-            {method: "GET", path: "/api/favshows", description: "Index of all favorite TV shows"},
-            {method: "POST", path: "/api/favshows", description: "Create a new favorite TV show"},
-            {method: "PUT", path: "/api/favshows/:id", description: "Edit a previous favorite show"},
-            {method: "DELETE", path: "api/favshows/:id", description: "Deletes a favorite show"}
+            {method: "GET", path: "/api/dodgerplayers", description: "Index of all Dodger player roster"},
+            {method: "POST", path: "/api/dodgerplayers", description: "Create a new Dodger"},
+            {method: "PUT", path: "/api/dodgerplayers/:id", description: "Edit a previous Dodger"},
+            {method: "DELETE", path: "api/dodgerplayers/:id", description: "Deletes a Dodger player"}
         ]
     })
+});
+
+//Profile
+app.get('/api/profile', (req, res) => {
+    res.json({
+        name: "Rachele Avella",
+        githubUsername: "ravella2",
+        githubLink: "https://github.com/ravella2",
+        githubProfileImage: "#",
+        currentCity: "Redwood City, CA",
+        pets: [{
+            name: "Hamilton",
+            type: "Fish",
+            breed: "Dwarf Gourami"
+        }]
+    });
 });
 
 
