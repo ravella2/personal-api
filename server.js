@@ -48,6 +48,20 @@ app.get('/api/profile', (req, res) => {
     });
 });
 
+//Index
+app.get('/api/dodgerplayers', (req, res) => {
+    db.Player.find({}, (err, allPlayers) =>{
+        if (err){
+            return console.log(err);
+        }
+        res.json(allPlayers);
+    });
+});
+
+//Create
+app.post('/api/dodgerplayers', (req, res) => {
+
+})
 
 //Response Enpoints
 app.listen(process.env.PORT || 3000, () => {
