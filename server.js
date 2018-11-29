@@ -2,7 +2,8 @@
 const 
     express = require('express'),
     app = express(),
-    bodyParser = require('body-parser')
+    bodyParser = require('body-parser'),
+    db = require('./models')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
@@ -16,7 +17,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
-//Respone Enpoints
-app.listen(3000, () => {
+//Response Enpoints
+app.listen(process.env.PORT || 3000, () => {
     console.log('Server running on http://localhost:3000');
 })
