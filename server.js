@@ -3,7 +3,8 @@ const
     express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
-    db = require('./models')
+    db = require('./models'),
+    ctrl = require('./controllers')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
@@ -50,63 +51,19 @@ app.get('/api/profile', (req, res) => {
 });
 
 //Index
-app.get('/api/dodgerplayers', (req, res) => {
-    db.Player.find({}, (err, allPlayers) =>{
-        if (err){
-            return console.log(err);
-        }
-        res.json(allPlayers);
-    });
-});
+app.get('/api/dodgerplayers', ctrl.player.index);
 
 //Create
-app.post('/api/dodgerplayers', (req, res) => {
-    let newDodger = req.body;
-
-    db.Player.create(newDodger, (err, savedDodger) => {
-        if (err) {
-            return console.log(err);
-        }
-        res.json(savedDodger);
-    });
-});
+app.post('/api/dodgerplayers', ctrl.player.create);
 
 //Find
-app.get('/api/dodgerplayers/:id', (req, res) => {
-    let dodgerId = req.params.id;
-
-    db.Player.findOne({_id: dodgerId}, (err, foundDodger) => {
-        if (err) {
-            return console.log(err);
-        }
-        res.json(foundDodger);
-    });
-});
+app.get('/api/dodgerplayers/:id', ctrl.player.find);
 
 //Update
-app.put('/api/dodgerplayers/:id', (req, res) => {
-    let dodgerId = req.params.id;
-    let updateDodger = req.body;
-
-    db.Player.findByIdAndUpdate({_id: dodgerId}, updateDodger, (err, updatedDodger) => {
-        if (err) {
-            return console.log(err);
-        }
-        res.json(updatedDodger);
-    });
-});
+app.put('/api/dodgerplayers/:id', ctrl.player.update);
 
 //Delete
-app.delete('/api/dodgerplayers/:id', (req, res) => {
-    let dodgerId = req.params.id;
-
-    db.Player.deleteOne({_id: dodgerId}, (err, deletedDodger) => {
-        if (err) {
-            return console.log(err);
-        }
-        res.json(deletedDodger);
-    });
-})
+app.delete('/api/dodgerplayers/:id', ctrl.player.delete);
 
 
 //Response Enpoints

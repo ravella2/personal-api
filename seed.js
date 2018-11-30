@@ -42,10 +42,12 @@ var newPlayers = new Array();
 
 dodgers_list.forEach(player => {
     db.Player.create(player, (err, newPlayer) => {
-        if(err) return console.log(err);
+        if(err) {
+            return console.log(err);
+        }
         newPlayers.push(newPlayer);
     })
 }) 
 
-console.log('player added');
+// console.log('player added');
 
