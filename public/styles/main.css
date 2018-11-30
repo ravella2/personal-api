@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:400i');
+
+body {
+    font-family: 'Cabin', sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-type {
+    padding-left: 30em;
+    padding-right: 30em;
+    background-color:#002F6C;
+}
+
+button {
+    border-radius: 10px;
+    margin-left: 2em;
+    margin-right: 2em
+}
+
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+form h3 {
+    margin-right: 2em;
+    margin-left: 2em;
+}
+
