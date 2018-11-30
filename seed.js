@@ -2,6 +2,7 @@ const db = require('./models');
 
 const dodgers_list = [
     {
+        _id: 22,
         name: "Clayton Kershaw",
         position: "Pitcher",
         jerseyNumber: 22,
@@ -9,6 +10,7 @@ const dodgers_list = [
         image: "https://securea.mlb.com/mlb/images/players/head_shot/477132.jpg"
     },
     {
+        _id: 14,
         name: "Enrique Hernandez",
         position: "Utility Player",
         jerseyNumber: 14,
@@ -16,6 +18,7 @@ const dodgers_list = [
         image: "http://mlb.mlb.com/mlb/images/players/head_shot/571771.jpg"
     },
     {
+        _id: 27,
         name: "Matt Kemp",
         position: "Outfielder",
         jerseyNumber: 27,
@@ -23,6 +26,7 @@ const dodgers_list = [
         image: "https://securea.mlb.com/mlb/images/players/head_shot/461314.jpg"
     },
     {
+        _id: 10,
         name: "Justin Turner",
         position: "Third Baseman",
         jerseyNumber: 10,
@@ -30,6 +34,7 @@ const dodgers_list = [
         image: "https://i1.wp.com/scvnews.com/wp-content/uploads/2017/09/Justin-Turner.jpg?resize=300%2C451&ssl=1"
     },
     {
+        _id: 35,
         name: "Cody Bellinger",
         position: "First Baseman",
         jerseyNumber: 35,
