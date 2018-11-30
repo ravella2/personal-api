@@ -4,6 +4,28 @@ $(document).ready(function() {
         e.preventDefault();
 
         var playerSearch = $('.player-input').val();
-        var dodgerUrl = ``
+        var dodgerUrl = `/api/dodgerplayers/${playerSearch}`
+
+        $.ajax({
+            method: "GET",
+            url: dodgerUrl,
+            success: onSuccess,
+            error: onerror
+        });
+
+        function onSuccess (response) {
+            console.log(response);
+            $('.display-player').empty();
+
+            playerImage = `<img src="${response.image}">`;
+            playerName = `<h2>${response.name}</h2>`;
+            playerTown = `<p>${response.hometown}</p>`;
+            playerRole = `<p>${response.position}</p>`;
+            $('.display-player').append(playerName);
+            $('.display-player').append(playerImage);
+            $('.display-player').append(playerTown);
+            $('.display-player').append(playerRole);
+
+        }
     })
 });

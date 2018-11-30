@@ -5,7 +5,6 @@ const PlayerSchema = new Schema({
     _id: Number,
     name: String,
     position: String,
-    jerseyNumber: Number,
     hometown: String,
     image: String
 });

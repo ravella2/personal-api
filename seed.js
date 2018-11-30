@@ -43,6 +43,22 @@ const dodgers_list = [
     }
 ];
 
+db.Player.remove({}, function(err, players){
+    if(err) {
+        console.log(err);
+    } else {
+        console.log('removed all players');
+
+
+        db.Player.create(dodgers_list, function(err, players){
+            if (err) { 
+                return (err);
+            }
+            process.exit();
+        });
+    }
+});
+
 var newPlayers = new Array();
 
 dodgers_list.forEach(player => {
