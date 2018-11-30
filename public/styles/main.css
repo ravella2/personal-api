@@ -6,9 +6,17 @@ body {
 
 header {
     text-align: center;
+    background-image: url(https://wallpapercave.com/wp/Oigwc5e.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: whitesmoke;
+    height: 50vh;
+    
 }
 
 .main {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,6 +34,9 @@ button {
     margin-right: 2em
 }
 
+button:hover {
+    cursor: pointer;
+}
 
 form {
     display: flex;
@@ -37,6 +48,18 @@ form h3 {
     margin-right: 2em;
     margin-left: 2em;
 }
+
+/* fix this -----> */
+
+.display-player {
+    margin-left: 40em;
+    margin-right: 40em;
+}
+
+
+
+
+
 
 
 
